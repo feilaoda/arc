@@ -7,9 +7,9 @@
 
 (declare 'atstrings t)
 
-(= this-site*    "My Forum"
-   site-url*     "http://news.yourdomain.com/"
-   parent-url*   "http://www.yourdomain.com"
+(= this-site*    "Cloud Think&Idea"
+   site-url*     "http://www.yunsikao.com/"
+   parent-url*   "http://www.yunsikao.com"
    favicon-url*  ""
    site-desc*    "What this site is about."               ; for rss feed
    site-color*   (color 180 180 180)
@@ -487,13 +487,13 @@ a:visited { color:#828282; text-decoration:none; }
 
 .default { font-family:Verdana; font-size: 10pt; color:#828282; }
 .admin   { font-family:Verdana; font-size:8.5pt; color:#000000; }
-.title   { font-family:Verdana; font-size: 10pt; color:#828282; }
+.title   { font-family:Verdana; font-size: 16px; color:#369; }
 .adtitle { font-family:Verdana; font-size:  9pt; color:#828282; }
-.subtext { font-family:Verdana; font-size:  7pt; color:#828282; }
+.subtext { font-family:Verdana; font-size: 11px; color:#828282; }
 .yclinks { font-family:Verdana; font-size:  8pt; color:#828282; }
 .pagetop { font-family:Verdana; font-size: 10pt; color:#222222; }
 .comhead { font-family:Verdana; font-size:  8pt; color:#828282; }
-.comment { font-family:Verdana; font-size:  9pt; }
+.comment { font-family:Verdana; font-size:  14px; }
 .dead    { font-family:Verdana; font-size:  9pt; color:#dddddd; }
 
 .comment a:link, .comment a:visited { text-decoration:underline;}
@@ -574,7 +574,7 @@ function vote(node) {
        site-color*))
 
 (def pagetop (switch lid label (o title) (o user) (o whence))
-; (tr (tdcolor black (vspace 5)))
+; (tr (tdcolor black (vspace 10)))
   (tr (tdcolor (main-color user)
         (tag (table border 0 cellpadding 0 cellspacing 0 width "100%"
                     style "padding:2px")
@@ -599,7 +599,7 @@ function vote(node) {
       (tag (img src logo-url* width 18 height 18
                 style "border:1px #@(hexrep border-color*) solid;")))))
 
-(= toplabels* '(nil "welcome" "new" "threads" "comments" "leaders" "*"))
+(= toplabels* '(nil "new" "threads" "comments" "*"))
 
 ; redefined later
 
