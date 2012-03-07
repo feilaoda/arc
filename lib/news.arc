@@ -12,7 +12,7 @@
    parent-url*   "http://www.yunsikao.com"
    favicon-url*  ""
    site-desc*    "What this site is about."               ; for rss feed
-   site-color*   (color 180 180 180)
+   site-color*   (color 233 244 233)
    border-color* (color 180 180 180)
    prefer-url*   t)
 
@@ -395,7 +395,7 @@
 ; redefined later
 
 (def gen-css-url ()
-  (prn "<link rel=\"stylesheet\" type=\"text/css\" href=\"news.css\">"))
+  (prn "<link rel=\"stylesheet\" type=\"text/css\" href=\"/static/news.css\">"))
 
 (mac npage (title . body)
   `(tag html
@@ -566,7 +566,7 @@ function vote(node) {
 
 ; Page top
 
-(= sand (color 246 246 239) textgray (gray 130))
+(= sand (color 250 250 250) textgray (gray 130))
 
 (def main-color (user)
   (aif (and user (uvar user topcolor))
@@ -607,13 +607,13 @@ function vote(node) {
 
 (def toprow (user label)
   (w/bars
-    (when (noob user)
-      (toplink "welcome" welcome-url* label))
-    (toplink "new" "newest" label)
+;    (when (noob user)
+;      (toplink "welcome" welcome-url* label))
+    (toplink "最新" "newest" label)
     (when user
-      (toplink "threads" (threads-url user) label))
-    (toplink "comments" "newcomments" label)
-    (toplink "leaders"  "leaders"     label)
+      (toplink "主题" (threads-url user) label))
+    (toplink "评论" "newcomments" label)
+;    (toplink "leaders"  "leaders"     label)
     (hook 'toprow user label)
     (link "submit")
     (unless (mem label toplabels*)
