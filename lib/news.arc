@@ -609,10 +609,11 @@ function vote(node) {
   (w/bars
 ;    (when (noob user)
 ;      (toplink "welcome" welcome-url* label))
+    (toplink "热门" "news" label)
     (toplink "最新" "newest" label)
-    (when user
-      (toplink "主题" (threads-url user) label))
-    (toplink "评论" "newcomments" label)
+     (toplink "评论" "newcomments" label)  
+  (when user
+      (toplink "我的主题" (threads-url user) label))
 ;    (toplink "leaders"  "leaders"     label)
     (hook 'toprow user label)
     (link "submit")
@@ -1173,10 +1174,10 @@ function vote(node) {
     (tag (a href (item-url i!id))
       (let n (- (visible-family user i) 1)
         (if (> n 0)
-            (do (pr (plural n "comment"))
+            (do (pr (plural n "评论"))
                 (awhen (and show-threadavg* (admin user) (threadavg i))
                   (pr " (@(num it 1 t t))")))
-            (pr "discuss"))))))
+            (pr "评论"))))))
 
 (def visible-family (user i)
   (+ (if (cansee user i) 1 0)
@@ -1323,9 +1324,9 @@ function vote(node) {
 
 (def text-age (a)
   (tostring
-    (if (>= a 1440) (pr (plural (trunc (/ a 1440)) "day")    " ago")
-        (>= a   60) (pr (plural (trunc (/ a 60))   "hour")   " ago")
-                    (pr (plural (trunc a)          "minute") " ago"))))
+    (if (>= a 1440) (pr (plural (trunc (/ a 1440)) "天")    "前")
+        (>= a   60) (pr (plural (trunc (/ a 60))   "小时")   "前")
+                    (pr (plural (trunc a)          "分钟") "前"))))
 
 
 ; Voting
