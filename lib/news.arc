@@ -1174,7 +1174,7 @@ function vote(node) {
     (tag (a href (item-url i!id))
       (let n (- (visible-family user i) 1)
         (if (> n 0)
-            (do (pr "评论\(" n "\)" )
+            (do (pr "评论(" n ")" )
                 (awhen (and show-threadavg* (admin user) (threadavg i))
                   (pr " (@(num it 1 t t))")))
             (pr "评论"))))))
