@@ -1174,7 +1174,7 @@ function vote(node) {
     (tag (a href (item-url i!id))
       (let n (- (visible-family user i) 1)
         (if (> n 0)
-            (do (pr (plural n "评论"))
+            (do (pr "评论\(" n "\)" )
                 (awhen (and show-threadavg* (admin user) (threadavg i))
                   (pr " (@(num it 1 t t))")))
             (pr "评论"))))))
@@ -1324,9 +1324,9 @@ function vote(node) {
 
 (def text-age (a)
   (tostring
-    (if (>= a 1440) (pr (plural (trunc (/ a 1440)) "天")    "前")
-        (>= a   60) (pr (plural (trunc (/ a 60))   "小时")   "前")
-                    (pr (plural (trunc a)          "分钟") "前"))))
+    (if (>= a 1440) (pr (trunc (/ a 1440)) "天前")
+        (>= a   60) (pr (trunc (/ a 60))   "小时前")
+                    (pr (trunc a)          "分钟前"))))
 
 
 ; Voting
